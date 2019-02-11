@@ -1,22 +1,28 @@
 <html>
-<body>
-  <head>
-    <!--Load the AJAX API-->
-    <script src="http://code.jquery.com/jquery-1.9.1.min.js"></script>
-    <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<head>
+	<!--Load the AJAX API-->
+	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
+	<script type="text/javascript" src="js/amq_jquery_adapter.js"></script>
+	<script type="text/javascript" src="js/amq.js"></script>
+	<script type="text/javascript">
+		var amq = org.activemq.Amq;
+		amq.init({
+			uri : 'amq',
+			logging : true,
+			timeout : 20
+		});
+	</script>
 	<script src="./ohad.js"></script>
-  </head>
+</head>
 
-  <body>
+<body>
     <!--Div that will hold the pie chart-->
 	AE Server: <input type="text" id="server_name">:<input type="text" id="server_port" value=''><br>
 	<input type="checkbox" id="server_secured">Secured<br>
 	<input id="submit" type="submit" value="Submit" />
 	<button onclick="stopInterval()">Stop Interval</button>
-<!--     <div id="chart_div"></div> -->
-<!--     <div id="curve_chart" style="width: 900px; height: 500px"></div> -->
+
     <div id="barchart_values" style="width: 900px; height: 500px"></div>
     
-    <div id="cluster_status_table_div" style="width: 600px; height: 400px"></div>
-  </body>
+</body>
 </html>
