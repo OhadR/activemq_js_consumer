@@ -6,52 +6,18 @@ var mongoClusterData;
 var mongoClusterTable;
 var keepAliveCounter = 0;
 
-// Callback that creates and populates a data table,
-// instantiates the pie chart, passes in the data and
-// draws it.
-function drawChart(input) {
-
-  // Create the data table.
-  var data = new google.visualization.DataTable();
-  data.addColumn('string', 'Date');
-  data.addColumn('number', 'Bonus(USD)');
-  for(i=0; i<input.length; ++i)
-  {
-	data.addRow( [input[i].key, input[i].value] );
-  }
-	  
-/*  // Set chart options
-  var options = {'title':'How Much Pizza I Ate Last Night',
-                 'width':400,
-                 'height':300};
-
-  // Instantiate and draw our chart, passing in some options.
-  var chart = new google.visualization.PieChart(document.getElementById('chart_div'));
-*/
-  var options = {
-          title: 'Bonuses Paid (USD)',
-          curveType: 'function',
-          legend: { position: 'bottom' }
-        };
-
-  var chart = new google.visualization.LineChart(document.getElementById('curve_chart'));
-  chart.draw(data, options);
-}
-
-
       
 $(document).ready(function() {
 	$("#submit").click(function(){
 		
-//		callBackendGetJobProgress()
-		intervalObj = setInterval(callBackend, (1 * 1000));
+		intervalObj = setInterval(callBackend, (10 * 1000));
 	});
 });
 
 function callBackend()
 {
-	callBackendGetJobProgress();
-	callBackendGetMongoClusterStatus();
+	var destination = 'queue://MY_QUEUE';
+	amq.sendMessage(destination,"myMessage");
 }
 
 function getServerAddress()
