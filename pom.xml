@@ -34,7 +34,7 @@
 					<version>2.2</version>
 					<configuration>
 					    <addContextWarDependencies>true</addContextWarDependencies> 
-						<port>8089</port> 
+						<port>${ohadr.project.port}</port> 
 					</configuration>
 				</plugin>
 			</plugins>
