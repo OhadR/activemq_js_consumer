@@ -2,21 +2,31 @@
 var intervalObj;
 
 var counter = 0;
-var mongoClusterData;
-var mongoClusterTable;
-var keepAliveCounter = 0;
+var destination = 'queue://JCG_QUEUE';
+var handlerId = '543212345a';
 
-      
+var myHandlerXXX =
+{
+	rcvMessage: function(message)
+	{
+		alert("received "+message);
+	}
+};
+
+
+
 $(document).ready(function() {
+	
+	amq.addListener(handlerId, destination, myHandlerXXX.rcvMessage);
+
 	$("#submit").click(function(){
 		
-		intervalObj = setInterval(callBackend, (10 * 1000));
+		intervalObj = setInterval(callBackend, (5 * 1000));
 	});
 });
 
 function callBackend()
 {
-	var destination = 'queue://MY_QUEUE';
 	console.log('sending message to ' + destination);
 	amq.sendMessage(destination,"myMessage");
 }
@@ -69,5 +79,6 @@ function callBackendGetJobProgress()
 function stopInterval()
 {
 	window.clearInterval( intervalObj );
+//	amq.removeHandler(handlerId)
 }
 
