@@ -9,7 +9,7 @@ var ohadsHandler =
 {
 	rcvMessage: function(message)
 	{
-		alert("received "+message);
+		alert("received "+message.textContent);
 	}
 };
 
