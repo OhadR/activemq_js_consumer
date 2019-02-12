@@ -9,6 +9,7 @@ var ohadsHandler =
 {
 	rcvMessage: function(message)
 	{
+		console.log('received message from ' + destination);
 		alert("received "+message.textContent);
 	}
 };
@@ -76,6 +77,7 @@ function callBackendGetJobProgress()
 
 function stopInterval()
 {
+	console.log('* stopping sending messages to ' + destination);
 	window.clearInterval( intervalObj );
 }
 
