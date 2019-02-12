@@ -18,8 +18,11 @@
 <body>
     <!--Div that will hold the pie chart-->
 	Broker: <input type="text" id="server_name">:<input type="text" id="server_port" value=''><br>
-	<input id="submit" type="submit" value="Submit" />
-	<button onclick="stopInterval()">Stop Interval</button>
+	<input id="submit" type="submit" value="Start Sending" />
+	<button onclick="stopInterval()">Stop Sending</button><br><br>
+
+	<button onclick="registerListener()">Register Listener</button>
+	<button onclick="unregisterListener()">Unregister Listener</button>
 
     <div id="barchart_values" style="width: 900px; height: 500px"></div>
     

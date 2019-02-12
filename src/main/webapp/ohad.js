@@ -19,8 +19,6 @@ $(document).ready(function() {
 	
 	$("#submit").click(function(){
 		
-		amq.addListener(handlerId, destination, ohadsHandler.rcvMessage);
-
 		intervalObj = setInterval(callBackend, (5 * 1000));
 	});
 });
@@ -79,6 +77,14 @@ function callBackendGetJobProgress()
 function stopInterval()
 {
 	window.clearInterval( intervalObj );
-//	amq.removeHandler(handlerId)
 }
 
+function registerListener()
+{
+	amq.addListener(handlerId, destination, ohadsHandler.rcvMessage);
+}
+
+function unregisterListener()
+{
+	amq.removeListener(handlerId, destination);
+}
