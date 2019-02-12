@@ -5,14 +5,11 @@ var counter = 0;
 var destination = 'queue://JCG_QUEUE';
 var handlerId = '543212345a';
 
-var ohadsHandler =
+function onReceiveMessage(message)
 {
-	rcvMessage: function(message)
-	{
-		console.log('received message from ' + destination);
-		alert("received "+message.textContent);
-	}
-};
+	console.log('received message from ' + destination);
+	alert("received "+message.textContent);
+}
 
 
 
@@ -83,7 +80,7 @@ function stopInterval()
 
 function registerListener()
 {
-	amq.addListener(handlerId, destination, ohadsHandler.rcvMessage);
+	amq.addListener(handlerId, destination, onReceiveMessage);
 }
 
 function unregisterListener()
