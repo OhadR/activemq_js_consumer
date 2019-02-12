@@ -5,7 +5,11 @@
         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
         xsi:schemaLocation="http://java.sun.com/xml/ns/javaee http://java.sun.com/xml/ns/javaee/web-app_2_5.xsd">
     
-    
+	<context-param>
+        <param-name>org.apache.activemq.brokerURL</param-name>
+        <param-value>tcp://localhost:61616</param-value>
+    </context-param>
+	
 	<servlet>
 		<servlet-name>AjaxServlet</servlet-name>
 		<servlet-class>org.apache.activemq.web.AjaxServlet</servlet-class>

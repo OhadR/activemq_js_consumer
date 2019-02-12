@@ -17,6 +17,7 @@ $(document).ready(function() {
 function callBackend()
 {
 	var destination = 'queue://MY_QUEUE';
+	console.log('sending message to ' + destination);
 	amq.sendMessage(destination,"myMessage");
 }
 
