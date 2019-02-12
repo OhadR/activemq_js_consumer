@@ -5,7 +5,7 @@ var counter = 0;
 var destination = 'queue://JCG_QUEUE';
 var handlerId = '543212345a';
 
-var myHandlerXXX =
+var ohadsHandler =
 {
 	rcvMessage: function(message)
 	{
@@ -17,10 +17,10 @@ var myHandlerXXX =
 
 $(document).ready(function() {
 	
-	amq.addListener(handlerId, destination, myHandlerXXX.rcvMessage);
-
 	$("#submit").click(function(){
 		
+		amq.addListener(handlerId, destination, ohadsHandler.rcvMessage);
+
 		intervalObj = setInterval(callBackend, (5 * 1000));
 	});
 });
