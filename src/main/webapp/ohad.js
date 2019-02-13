@@ -11,8 +11,6 @@ function onReceiveMessage(message)
 	alert("received "+message.textContent);
 }
 
-
-
 $(document).ready(function() {
 	
 	$("#submit").click(function(){
@@ -86,4 +84,12 @@ function registerListener()
 function unregisterListener()
 {
 	amq.removeListener(handlerId, destination);
+}
+
+function amqConnectionStatusHandler(status)
+{
+	if(!status)
+		console.error('* connection status: ' + status);
+	else
+		console.log('* connection status: ' + status);
 }

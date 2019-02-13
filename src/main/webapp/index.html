@@ -4,15 +4,16 @@
 	<script type="text/javascript" src="js/jquery-1.4.2.min.js"></script>
 	<script type="text/javascript" src="js/amq_jquery_adapter.js"></script>
 	<script type="text/javascript" src="js/amq.js"></script>
+	<script src="./ohad.js"></script>
 	<script type="text/javascript">
 		var amq = org.activemq.Amq;
 		amq.init({
 			uri : 'amq',
 			logging : true,
-			timeout : 20
+			timeout : 20,
+			connectStatusHandler : amqConnectionStatusHandler
 		});
 	</script>
-	<script src="./ohad.js"></script>
 </head>
 
 <body>
