@@ -3,7 +3,7 @@ var intervalObj;
 
 var counter = 0;
 var destination = 'queue://JCG_QUEUE';
-var handlerId = '543212345a';
+var handlerId = '54';
 
 function onReceiveMessage(message)
 {
@@ -22,7 +22,8 @@ $(document).ready(function() {
 function callBackend()
 {
 	console.log('sending message to ' + destination);
-	amq.sendMessage(destination,"myMessage");
+	++counter;
+	amq.sendMessage(destination,"myMessage-" + counter);
 }
 
 function getServerAddress()
