@@ -2,7 +2,8 @@
 var intervalObj;
 
 var counter = 0;
-var destination = 'queue://JCG_QUEUE';
+//var destination = 'queue://JCG_QUEUE';
+var destination = 'ACG_QUEUE';
 var handlerId = '54';
 
 function onReceiveMessage(message)
