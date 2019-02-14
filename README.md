@@ -10,7 +10,7 @@ Note that 'ohadr.project.port' is a property that lets you set the port that the
 
 ## Debug within Eclipse
 
-See how in this README: https://gitlab.com/OhadR/activemq-spring-sandbox
+See how in this README: https://gitlab.com/OhadR/activemq-spring-sandbox#debug-within-eclipse
 
 ## How Apache's example works?
 
