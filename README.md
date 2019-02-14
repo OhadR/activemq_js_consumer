@@ -16,7 +16,7 @@ See how in this README: https://gitlab.com/OhadR/activemq-spring-sandbox#debug-w
 
 class `MessageListenerServlet` (that `AjaxServlet` extends) implements the `doPost()` that receives all queries from amq.js. All client-side queries starts in amq.js' generic method `sendJmsMessage()` that invokes a POST to the back-end: `MessageListenerServlet.doPost()`. 
 
-The `MLS` stores all `AjaxWebClient`s. The method `getAjaxWebClient()` puts the object onto the map, and the ClientCleaner removes the 'old' clients. Each `doPost()` calls the `getAjaxWebClient()`. Note that doPost() is called upon 'listen', 'unlisten', and 'send'. 
+The `MessageListenerServlet` stores all `AjaxWebClient`s. The method `getAjaxWebClient()` puts the object onto the map, and the ClientCleaner removes the 'old' clients. Each `doPost()` calls the `getAjaxWebClient()`. Note that doPost() is called upon 'listen', 'unlisten', and 'send'. 
 
 **Registering a Listener**
 
