@@ -3,17 +3,20 @@ var intervalObj;
 
 var counter = 0;
 //var destination = 'queue://JCG_QUEUE';
-var destination = 'ACG_QUEUE';
+var destination;
 var handlerId = '54';
 
 function onReceiveMessage(message)
 {
-	console.log('received message from ' + destination);
-	alert("received "+message.textContent);
+	console.log('received message from ' + destination + '. ' + message.textContent);
+//	alert("received "+ message.textContent);
+	$("#messages").text( message.textContent );
 }
 
 $(document).ready(function() {
-	
+
+	destination = $('#queue_name').val();
+
 	$("#submit").click(function(){
 		
 		intervalObj = setInterval(callBackend, (5 * 1000));
