@@ -18,7 +18,7 @@ See how in this README: https://gitlab.com/OhadR/activemq-spring-sandbox#debug-w
 
 ## How Apache's example works?
 
-See [Apache-ActiveMQ/ajax](#References) page for info. you can also see [here](#How-it-works)
+See [Apache-ActiveMQ/ajax](#references) page for info. you can also see [here](#how-it-works)
 
 
 class `MessageListenerServlet` (that `AjaxServlet` extends) implements the `doPost()` that receives all queries from amq.js. All client-side queries starts in amq.js' generic method `sendJmsMessage()` that invokes a POST to the back-end: `MessageListenerServlet.doPost()`. 
