@@ -76,3 +76,7 @@ When the amq.js javascipt receives the response to the poll, it processes all th
 Thus the idle state of the amq ajax feature is a poll request "parked" in the server, waiting for messages to be sent to the client. Periodically this "parked" request is refreshed by a timeout that prevents any TCP/IP, proxy or browser timeout closing the connection. The server is thus able to asynchronously send a message to the client by waking up the "parked" request and allowing the response to be sent.
 
 The client is able to asynchronously send a message to the server by creating (or using an existing) second connection to the server. However, during the processing of the poll response, normal client message sending is suspended, so that all messages to be sent are queued and sent as a single POST with the poll that will be sent (with no delay) at the end of the processing. This ensures that only two connections are required between client and server (the normal for most browsers).
+
+## Application Screenshot
+
+![screenshot](/src/main/webapp/images/app-screenshot.JPG)
